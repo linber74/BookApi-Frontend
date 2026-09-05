@@ -1,1 +1,22 @@
-<p>book-form works!</p>
+<h2>{{ isEditMode ? 'Edit Book' : 'Add New Book' }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title" />
+  </div>
+
+  <div>
+    <label for="author">Author</label>
+    <input id="author" type="text" formControlName="author" />
+  </div>
+
+  <div>
+    <label for="publishingDate">Publishing Date</label>
+    <input id="publishingDate" type="date" formControlName="publishingDate" />
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">
+    {{ isEditMode ? 'Update' : 'Create' }}
+  </button>
+</form>

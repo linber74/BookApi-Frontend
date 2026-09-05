@@ -1,1 +1,27 @@
-<p>book-list works!</p>
+<h2>Books</h2>
+
+<a routerLink="/books/new">+ Add new book</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Published</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (book of books; track book.id) {
+      <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.publishingDate }}</td>
+        <td>
+          <a [routerLink]="['/books', book.id]">Edit</a>
+          <button (click)="deleteBook(book.id)">Delete</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
