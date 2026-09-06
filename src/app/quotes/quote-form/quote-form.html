@@ -1,0 +1,20 @@
+<div class="container" style="max-width: 600px;">
+  <h2 class="mb-4">{{ isEditMode ? 'Redigera citat' : 'Lägg till nytt citat' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="text" class="form-label">Citat</label>
+      <textarea
+        id="text"
+        formControlName="text"
+        class="form-control"
+        rows="4"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      <i class="fa-solid fa-check"></i> {{ isEditMode ? 'Update' : 'Create' }}
+    </button>
+    <a routerLink="/quotes" class="btn btn-outline-secondary ms-2">Avbryt</a>
+  </form>
+</div>

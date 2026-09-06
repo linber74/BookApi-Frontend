@@ -1,22 +1,25 @@
-<h2>{{ isEditMode ? 'Edit Book' : 'Add New Book' }}</h2>
+<div class="container" style="max-width: 600px;">
+  <h2 class="mb-4">{{ isEditMode ? 'Edit Book' : 'Add New Book' }}</h2>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="title">Title</label>
-    <input id="title" type="text" formControlName="title" />
-  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input id="title" type="text" formControlName="title" class="form-control" />
+    </div>
 
-  <div>
-    <label for="author">Author</label>
-    <input id="author" type="text" formControlName="author" />
-  </div>
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input id="author" type="text" formControlName="author" class="form-control" />
+    </div>
 
-  <div>
-    <label for="publishingDate">Publishing Date</label>
-    <input id="publishingDate" type="date" formControlName="publishingDate" />
-  </div>
+    <div class="mb-3">
+      <label for="publishingDate" class="form-label">Publishing Date</label>
+      <input id="publishingDate" type="date" formControlName="publishingDate" class="form-control" />
+    </div>
 
-  <button type="submit" [disabled]="form.invalid">
-    {{ isEditMode ? 'Update' : 'Create' }}
-  </button>
-</form>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      <i class="fa-solid fa-check"></i> {{ isEditMode ? 'Update' : 'Create' }}
+    </button>
+    <a routerLink="/" class="btn btn-outline-secondary ms-2">Avbryt</a>
+  </form>
+</div>

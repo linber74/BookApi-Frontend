@@ -1,19 +1,23 @@
-<h2>Login</h2>
+<div class="container" style="max-width: 400px;">
+  <h2 class="mb-4">Login</h2>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="userName">Username</label>
-    <input id="userName" type="text" formControlName="userName" />
-  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="userName" class="form-label">Username</label>
+      <input id="userName" type="text" formControlName="userName" class="form-control" />
+    </div>
 
-  <div>
-    <label for="passwordHash">Password</label>
-    <input id="passwordHash" type="password" formControlName="passwordHash" />
-  </div>
+    <div class="mb-3">
+      <label for="passwordHash" class="form-label">Password</label>
+      <input id="passwordHash" type="password" formControlName="passwordHash" class="form-control" />
+    </div>
 
-  <button type="submit" [disabled]="form.invalid">Login</button>
-</form>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      <i class="fa-solid fa-right-to-bracket"></i> Login
+    </button>
+  </form>
 
-@if (errorMessage) {
-  <p class="error">{{ errorMessage }}</p>
-}
+  @if (errorMessage) {
+    <div class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  }
+</div>
