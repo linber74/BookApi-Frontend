@@ -19,7 +19,7 @@
       <tr>
         <td>{{ book.title }}</td>
         <td>{{ book.author }}</td>
-        <td>{{ book.publishingDate }}</td>
+        <td>{{ book.publishingDate | date }}</td>
         <td class="text-end">
           <a [routerLink]="['/books', book.id]" class="btn btn-sm btn-outline-secondary me-2">
             <i class="fa-solid fa-pen"></i> Edit
